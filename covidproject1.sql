@@ -49,7 +49,7 @@ ORDER BY 2 desc;
 
 SELECT location, max(cast(total_deaths as int)) as total_deaths_so_far
 FROM coviddeaths 
-WHERE continent is null
+WHERE continent is null and location not in ('World','European Union', 'International')
 GROUP BY location
 ORDER BY 2 desc;
 
