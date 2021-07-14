@@ -25,11 +25,11 @@ ORDER BY 1,2;
 
 
 --Countries with highest covid infected rate
-SELECT location, max(total_cases) as total_cases_so_far,max((total_cases/population)*100) as population_affected
+SELECT location,population, max(total_cases) as total_cases_so_far,max((total_cases/population)*100) as population_affected
 FROM coviddeaths 
 WHERE continent is not null
-GROUP BY location
-ORDER BY 3 desc, 1;
+GROUP BY location,population
+ORDER BY 4 desc, 1;
 
 
 --people died who were affected - each country
