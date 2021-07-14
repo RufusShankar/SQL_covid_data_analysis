@@ -79,6 +79,11 @@ WHERE continent is not null
 GROUP BY date
 ORDER BY date
 
+--Total cases, total deaths, death ratio
+
+SELECT sum(new_cases) as total_cases, sum(cast(new_deaths as int)) as total_deaths, (sum(cast(new_deaths as int))/sum(new_cases))*100 as death_ratio_so_far
+FROM coviddeaths
+WHERE continent is not null
 
 --Joining deaths and vaccination tables
 
